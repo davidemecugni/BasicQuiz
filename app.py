@@ -45,7 +45,7 @@ questions = [
     Question(question_text='Cosa rappresenta l\'analisi di sentimenti nel NLP?', option1='La capacità di interpretare il significato delle frasi', option2='L\'identificazione e classificazione delle opinioni espresse in un testo', option3='L\'analisi della struttura sintattica del testo', correct_option=2),
 ]
 
-@app.before_request 
+@app.before_request
 def setup():
     db.create_all()
     if Question.query.count() == 0 or Question.query.count() != len(questions):
@@ -59,7 +59,7 @@ def index():
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
-    questions = Question.query.all()  
+    questions = Question.query.all()
     if request.method == "POST":
         score = 0
         username = request.form.get('username')
@@ -77,7 +77,7 @@ def quiz():
         elif score >= len(questions) * 0.6:
             result = "complimenti! Hai risposto correttamente a molte domande! Sei molto bravo, continua così!"
         elif score == len(questions):
-            result = "complimenti! Hai risposto correttamente a tutte le domande! Complimento, sei un vero esperto!" 
+            result = "complimenti! Hai risposto correttamente a tutte le domande! Complimento, sei un vero esperto!"
 
         top_score = Score.query.filter_by(username=username).order_by(Score.score.desc()).first() # type: ignore
         top_score = top_score.score if top_score else 0
