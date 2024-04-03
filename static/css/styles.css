@@ -1,0 +1,32 @@
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 11rem;
+
+}
+.footer-link {
+    color: #333;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+form{
+    margin-bottom: 200px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 11rem;    /* Footer height */
+}
